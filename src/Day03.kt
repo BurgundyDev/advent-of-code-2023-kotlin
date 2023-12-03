@@ -126,16 +126,16 @@ fun main() {
         }
 
         for (gear in gears) {
-            val corrdinatesToCheck: MutableList<Pair<Int, Int>> = mutableListOf()
-            val corrdinatesBlocked: MutableList<Pair<Int, Int>> = mutableListOf()
-            corrdinatesToCheck.addAll(getAdjacentCoords(gear, schematic))
+            val coordinatesToCheck: MutableList<Pair<Int, Int>> = mutableListOf()
+            val coordinatesBlocked: MutableList<Pair<Int, Int>> = mutableListOf()
+            coordinatesToCheck.addAll(getAdjacentCoords(gear, schematic))
             val adjacentParts: MutableList<Int> = mutableListOf()
-            for (coord in corrdinatesToCheck) {
-                if(!corrdinatesBlocked.contains(coord)){
+            for (coord in coordinatesToCheck) {
+                if(!coordinatesBlocked.contains(coord)){
                     for (part in parts) {
                         if (part.second.contains(coord)) {
                             adjacentParts.addLast(part.first)
-                            corrdinatesBlocked.addAll(part.second)
+                            coordinatesBlocked.addAll(part.second)
                         }
                     }
                 }
