@@ -142,7 +142,7 @@ fun main() {
 
             }
             if (adjacentParts.size == 2) {
-                println(adjacentParts)
+                // println(adjacentParts)
                 total += adjacentParts.reduce { acc, i -> acc * i }
             }
         }
