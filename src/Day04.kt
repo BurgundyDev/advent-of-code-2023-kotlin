@@ -25,7 +25,6 @@ fun main() {
     fun part2(input: List<String>): Int {
         val cards = mutableListOf<Pair<Int, Int>>()
         for(card in input) {
-            // println(card.replace(Regex("Card \\d+: "), ""))
             val winningNumbers = card.replace(Regex("Card \\d+: "), "").split(" | ")[0].split(" ").mapNotNull { it.toIntOrNull() }
             val cardNumbers = card.replace(Regex("Card \\d+: "), "").split(" | ")[1].split(" ").mapNotNull { it.toIntOrNull() }
 //            println("Winning numbers: $winningNumbers")
@@ -40,16 +39,14 @@ fun main() {
         }
         var total = 0
         for((ci, card) in cards.withIndex()) {
-//            println("Copies of card ${ci+1}: ${card.first}")
-            for(x in 1..card.first) {
-                if(card.second>0) {
-                    for(i in 1..card.second) {
-                        if(ci+i < cards.size) {
-                            cards[ci+i] = Pair(cards[ci+i].first+1, cards[ci+i].second)
-                        }
+            if(card.second>0) {
+                for(i in 1..card.second) {
+                    if(ci+i < cards.size) {
+                        cards[ci+i] = Pair(cards[ci+i].first+card.first, cards[ci+i].second)
                     }
                 }
             }
+
             total += card.first
         }
 
