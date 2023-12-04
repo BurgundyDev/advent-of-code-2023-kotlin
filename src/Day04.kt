@@ -2,7 +2,6 @@ fun main() {
     fun part1(input: List<String>): Int {
         var total = 0
         for(card in input) {
-            // println(card.replace(Regex("Card \\d+: "), ""))
             val winningNumbers = card.replace(Regex("Card \\d+: "), "").split(" | ")[0].split(" ").mapNotNull { it.toIntOrNull() }
             val cardNumbers = card.replace(Regex("Card \\d+: "), "").split(" | ")[1].split(" ").mapNotNull { it.toIntOrNull() }
 //            println("Winning numbers: $winningNumbers")
