@@ -29,9 +29,7 @@ fun main() {
         val seeds: List<UInt> = input[0].removePrefix("seeds: ").split(" ").mapNotNull { it.toUIntOrNull() }
         val mappings: List<List<List<UInt>>> = parseInput(input)
         val finalSeeds: MutableList<UInt> = mutableListOf()
-        var seedIn = 0
         for(seed in seeds) {
-            seedIn++
             var currSeed = seed
             for( mapping in mappings) {
                 for(option in mapping) {
@@ -52,9 +50,9 @@ fun main() {
             input[0].removePrefix("seeds: ").split(" ").mapNotNull { it.toUIntOrNull() }.chunked(2).map { Range(it[0], it[0]+it[1]-1u) }.toCollection(ArrayDeque())
         val mappings: List<List<List<UInt>>> = parseInput(input)
         for(mapping in mappings) {
-            var newRanges = ArrayDeque<Range>()
+            val newRanges = ArrayDeque<Range>()
             while (seedRanges.isNotEmpty()) {
-                var currRange = seedRanges.removeFirst()
+                val currRange = seedRanges.removeFirst()
                 var found = false
                 for (option in mapping) {
                     val overlapLeft = max(currRange.start, option[1])
