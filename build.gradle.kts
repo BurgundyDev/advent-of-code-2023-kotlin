@@ -20,7 +20,7 @@ for(file in fileTree("src")) {
             group = "run"
             description = "Runs ${file.name}"
             classpath = sourceSets["main"].runtimeClasspath
-            mainClass = file.name.removeSuffix(".kt")
+            mainClass = file.name.removeSuffix(".kt") + "Kt"
         }
     }
 }
