@@ -48,7 +48,7 @@ fun main() {
             steps.add(stepsForNode)
         }
 
-        return lcmOfList(steps)
+        return steps.reduce(::lcm)
     }
 
     // Test input solution
