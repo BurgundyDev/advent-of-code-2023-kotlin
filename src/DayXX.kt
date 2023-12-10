@@ -9,9 +9,9 @@ fun main() {
 
     // Test input solution
     val testInput = readInput("DayXX_test")
-    print("Expected Test for Part 1: ")
+    print("Test for Part 1: ")
     part1(testInput).println()
-    print("Expected Test for Part 2: ")
+    print("Test for Part 2: ")
     part2(testInput).println()
 
     // Real input solution
